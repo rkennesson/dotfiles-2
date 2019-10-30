@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # enable RPM Fusion "free" repo:
-sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-'$(rpm -E %fedora)'.noarch.rpm
+sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
 # enable Nvidia repo and install driver:
 sudo dnf -y install fedora-workstation-repositories
