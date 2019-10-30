@@ -7,7 +7,6 @@ sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
 sudo dnf -y install fedora-workstation-repositories
 sudo dnf -y config-manager --set-enabled rpmfusion-nonfree-nvidia-driver
 sudo dnf -y install xorg-x11-drv-nvidia akmod-nvidia && sudo dnf upgrade -y
-sudo grubby --update-kernel=ALL --args='nvidia-drm.modeset=1'
 
 # fix font rendering:
 sudo ln -s /usr/share/fontconfig/conf.avail/10-hinting-slight.conf /etc/fonts/conf.d/
@@ -20,7 +19,7 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 cat <<EOF >> ~/.bashrc
 alias packagecount='dnf list installed | wc -l'
 alias clearswap='sudo swapoff -a && sudo swapon -a'
-alias fullupdate='sudo dnf upgrade -y && sudo dnf autoremove -y && sudo dnf clean all'
+alias fullupdate='sudo dnf upgrade -y && sudo dnf autoremove -y'
 
 ytclip () {
   ffmpeg -i "$(youtube-dl -f best -g "$3")" -ss $1 -to $2 -async 1 ~/Videos/clip.mp4
