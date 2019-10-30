@@ -16,7 +16,7 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
 gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 
 # add aliases:
-cat <<'EOF' >> ~/.bashrc
+cat << 'EOF' >> ~/.bashrc
 alias packagecount='dnf list installed | wc -l'
 alias clearswap='sudo swapoff -a && sudo swapon -a'
 alias fullupdate='sudo dnf upgrade -y && sudo dnf autoremove -y'
