@@ -37,6 +37,10 @@ ln -s /mnt/Storage/Music/ ~/Music/
 # set swappiness value to 10
 echo 'vm.swappiness = 10' | sudo tee -a /etc/sysctl.d/99-sysctl.conf
 
+# speed up dnf
+echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
+echo 'max_parallel_downloads=20' | sudo tee -a /etc/dnf/dnf.conf
+
 # install/Remove software:
 sudo dnf -y install gnome-music gnome-tweak-tool transmission-gtk mpv youtube-dl ffmpeg compat-ffmpeg28
 sudo dnf -y remove gnome-maps gnome-photos rhythmbox gnome-weather cheese gnome-clocks gnome-contacts gnome-documents totem gdouros-symbola-fonts
