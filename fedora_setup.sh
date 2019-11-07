@@ -28,7 +28,7 @@ EOF
 
 # auto-mount storage drive:
 sudo mkdir /mnt/Storage/
-sudo bash -c 'echo -e "UUID=bb1a411a-278e-4218-ab85-fb31bc3807fb /mnt/Storage ext4 defaults 0 0" >> /etc/fstab'
+echo 'UUID=bb1a411a-278e-4218-ab85-fb31bc3807fb /mnt/Storage ext4 defaults 0 0' | sudo tee -a /etc/fstab
 sudo mount -a
 
 # symlink music from storage drive
